@@ -55,9 +55,7 @@ int main(void)
 
 	}
 
-	free(yes);
-	free(cmd);
+	printf("^C\n");
 	free(buff);
-	free(arr);
 	return (0);
 }
