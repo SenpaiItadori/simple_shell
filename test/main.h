@@ -26,4 +26,6 @@ char **create_array(int size);
 char **init_array(char **arr, int size);
 void free_array(char **array);
 
+int _putchar(char c);
+
 #endif
