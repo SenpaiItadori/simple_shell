@@ -26,6 +26,11 @@ char **create_array(int size);
 char **init_array(char **arr, int size);
 void free_array(char **array);
 
+/*_______________main functions_________________*/
+void prompt(void);
+char *readline(void);
+
+
 int _putchar(char c);
 
 #endif
