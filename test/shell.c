@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	char *buff;
+	char *buff, *arr;
 	while (1)
 	{
 		prompt();
@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 				_putchar('\n');
 			return (0);
 		}
-		/*create array for execve*/
+		arr = _arg_sort(buff);
 		/*pass evironment to array[0]*/
 		/*check to see if command exists*/
 		/*fork and exercute command*/
