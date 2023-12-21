@@ -15,5 +15,16 @@ int main(int argc, char *argv[])
 	{
 		prompt();
 		buff = readline();
+		if (buff == NULL)
+		{
+			if (isatty(STDIN_FILENO))
+				_putchar('\n');
+			return (0);
+		}
+		/*create array for execve*/
+		/*pass evironment to array[0]*/
+		/*check to see if command exists*/
+		/*fork and exercute command*/
+		/*free the memory*/
 	}
 }
