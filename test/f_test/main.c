@@ -2,19 +2,16 @@
 
 int main(void)
 {
-	char *str, **a;
-	int i = 0, j = 0;
+	char *str, **a, *cmd;
+	int j = 0;
 
 	prompt();
 	str = readline();
 
 	a = arg_sort(str);
+	cmd = path_finder(a[0]);
 
-	while (a[i])
-	{
-		printf("%s\n", a[i]);
-		i++;
-	}
+	printf("it worked , the path is %s\n", cmd);
 	free(str);
 	while (a[j])
 	{
@@ -22,6 +19,7 @@ int main(void)
 		j++;
 	}
 	free(a);
+	free(cmd);
 
 	return (0);
 }
