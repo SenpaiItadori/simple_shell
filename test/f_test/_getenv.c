@@ -9,20 +9,22 @@
 
 char *_getenv(char *str)
 {
-	char *token, *temp;
-	size_t i = 0;
+	char *token, *temp, *val, *env;
+	size_t i;
 
-	while (environ[i])
+	for (i = 0; environ[i]; i++)
 	{
 		temp = _strdup(environ[i]);
 		token = strtok(temp, "=");
 		if (_strcmp(token, str) == 0)
 		{
-			token = strtok(NULL, "=");
-			return (token);
+			val = strtok(NULL, "\n");
+			env = _strdup(val);
+			free(temp);
+			return (env);
 		}
 		free(temp);
-		i++;
+		temp = NULL;
 	}
 
 	return (NULL);

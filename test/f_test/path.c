@@ -14,38 +14,40 @@ char *path_finder(char *c)
 
 	if (stat(c, &ab) == 0)
 		return (c);
+
 	path = _getenv("PATH");
 	token = strtok(path, ":");
-	cmd = malloc(sizeof(char) * _strlen(token) + 2);
-
+	cmd = malloc(_strlen(c) + _strlen(token) + 2);
 	if (cmd == NULL)
 	{
 		free(path);
 		return (NULL);
 	}
-	_strcpy(cmd, token);
+	cmd = _strcpy(cmd, token);
 	cmd = _concat(cmd, "/");
 	cmd = _concat(cmd, c);
-
 	while (token != NULL)
 	{
 		if (stat(cmd, &ab) == 0)
 		{
 			free(path);
+			free(c);
 			return (cmd);
 		}
 		free(cmd);
+		cmd = NULL;
 		token = strtok(NULL, ":");
-		cmd = malloc(sizeof(char) * _strlen(token) + 2);
+		cmd = malloc(_strlen(c) + _strlen(token) + 2);
 		if (cmd == NULL)
 		{
 			free(path);
 			return (NULL);
 		}
-		_strcpy(cmd, token);
+		cmd = _strcpy(cmd, token);
 		cmd = _concat(cmd, "/");
 		cmd = _concat(cmd, c);
 	}
 	free(path);
+	free(cmd);
 	return (c);
 }

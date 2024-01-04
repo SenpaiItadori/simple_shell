@@ -77,26 +77,20 @@ char *_strcpy(char *s1, char *s2)
 
 char *_concat(char *s1, char *s2)
 {
-	int len1 = 0, len2 = 0, i, len = 0;
-	char *s3;
+	char *s3 = s1;
 
-	len1 = _strlen(s1);
-	len2 = _strlen(s2);
-	len = len1 + len2 + 1;
+	while (*s3)
+		s3++;
 
-	s3 = malloc(sizeof(char) * len);
-	if (s3 == NULL)
-		return (NULL);
-
-	for (i = 0; i < len; i++)
+	while (*s2)
 	{
-		if (i < len1)
-			s3[i] = s1[i];
-		else
-			s3[i] = s2[i - len2];
+		*s3 = *s2;
+		s3++;
+		s2++;
 	}
+	*s3 = *s2;
 
-	return (s3);
+	return (s1);
 }
 
 /**
