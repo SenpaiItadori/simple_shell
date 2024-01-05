@@ -11,6 +11,7 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include <errno.h>
+#include <sys/stat.h>
 
 extern char **environ;
 
@@ -30,9 +31,14 @@ void free_array(char **array);
 void prompt(void);
 char *readline(void);
 char **arg_sort(char *buffer);
+char *path_finder(char *c);
+int run_command(char **cmd_args);
 
 /*______________argument.c functions_______________*/
 int tok_num(char *str, const char *del);
+
+/*_______________env functions____________________*/
+char *_getenv(char *str);
 
 
 int _putchar(char c);

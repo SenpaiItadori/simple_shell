@@ -15,19 +15,15 @@ char **arg_sort(char *buffer)
 
 	buff_cpy = _strdup(buffer);
 	size = tok_num(buff_cpy, delim);
-	printf("size of the array has been calculated\n");
 	free(buff_cpy);
 	copy = strdup(buffer);
 	arr = create_array(size);
-	printf("array has been created\n");
 
 	token = strtok(copy, delim);
 	arr[i] = malloc(sizeof(char) * (_strlen(token) + 1));
 	if (arr[i] == NULL)
 		return (NULL);
-	printf("malloc for arr[0] is done\n");
 	_strcpy(arr[i], token);
-	printf("string has been copied\n");
 	i++;
 
 	while (token != NULL)

@@ -22,9 +22,12 @@ int main(int argc, char *argv[])
 			return (0);
 		}
 		arr = _arg_sort(buff);
-		/*pass evironment to array[0]*/
-		/*check to see if command exists*/
-		/*fork and exercute command*/
+		arr[0] = path_finder(arr[0]);
+		if (path_check(arr[0] == 0))
+		{
+			/*fork and exercute command*/
+			run_command(arr);
+		}
 		/*free the memory*/
 	}
 }

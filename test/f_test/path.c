@@ -11,43 +11,41 @@ char *path_finder(char *c)
 {
 	char *token, *path, *cmd;
 	struct stat ab;
+	int i;
 
-	if (stat(c, &ab) == 0)
-		return (c);
+	for (i = 0; c[i]; i++)
+	{
+		if (c[i] == '/')
+		{
+			if (stat(c, &ab) == 0)
+				return (_strdup(c));
+			return (NULL);
+		}
+	}
 
 	path = _getenv("PATH");
-	token = strtok(path, ":");
-	cmd = malloc(_strlen(c) + _strlen(token) + 2);
-	if (cmd == NULL)
-	{
-		free(path);
+	if (path == NULL)
 		return (NULL);
-	}
-	cmd = _strcpy(cmd, token);
-	cmd = _concat(cmd, "/");
-	cmd = _concat(cmd, c);
-	while (token != NULL)
+	token = strtok(path, ":");
+
+	while (token)
 	{
-		if (stat(cmd, &ab) == 0)
+		cmd = malloc(_strlen(token) + _strlen(c) + 2);
+		if (cmd)
 		{
-			free(path);
-			free(c);
-			return (cmd);
-		}
+			_strcpy(cmd, token);
+			_concat(cmd, "/");
+			_concat(cmd, c);
+			if (stat(cmd, &ab) == 0)
+			{
+				free(path);
+				return (cmd);
+			}
 		free(cmd);
 		cmd = NULL;
 		token = strtok(NULL, ":");
-		cmd = malloc(_strlen(c) + _strlen(token) + 2);
-		if (cmd == NULL)
-		{
-			free(path);
-			return (NULL);
 		}
-		cmd = _strcpy(cmd, token);
-		cmd = _concat(cmd, "/");
-		cmd = _concat(cmd, c);
 	}
 	free(path);
-	free(cmd);
-	return (c);
+	return (NULL);
 }
