@@ -25,14 +25,14 @@ int _strcmp(char *s1, char *s2);
 /*_______________array functions__________________*/
 char **create_array(int size);
 char **init_array(char **arr, int size);
-void free_array(char **array);
+void free_array(char **_arr);
 
 /*_______________main functions___________________*/
 void prompt(void);
 char *readline(void);
 char **arg_sort(char *buffer);
 char *path_finder(char *c);
-int run_command(char **cmd_args);
+int run_command(char *str, char **cmd_args);
 
 /*______________argument.c functions_______________*/
 int tok_num(char *str, const char *del);

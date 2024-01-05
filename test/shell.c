@@ -10,7 +10,9 @@
 
 int main(int argc, char *argv[])
 {
-	char *buff, *arr;
+	char *buff, **arr;
+	(void) argc;
+
 	while (1)
 	{
 		prompt();
@@ -21,13 +23,20 @@ int main(int argc, char *argv[])
 				_putchar('\n');
 			return (0);
 		}
-		arr = _arg_sort(buff);
+		arr = arg_sort(buff);
 		arr[0] = path_finder(arr[0]);
-		if (path_check(arr[0] == 0))
+		if (arr[0])
 		{
-			/*fork and exercute command*/
-			run_command(arr);
+			run_command(arr[0], arr);
+			free_array(arr);
+			free(buff);
 		}
-		/*free the memory*/
+		else
+		{
+			perror(argv[0]);
+			free_array(arr);
+			free(buff);
+		}
 	}
+	return (0);
 }

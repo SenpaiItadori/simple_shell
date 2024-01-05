@@ -17,3 +17,21 @@ char **create_array(int size)
 
 	return (arr);
 }
+
+/**
+ * free_array - frees an array
+ * @_arr: the array to be freed
+ *
+ */
+
+void free_array(char **_arr)
+{
+	int i;
+
+	for (i = 0; _arr[i]; i++)
+	{
+		free(_arr[i]);
+	}
+
+	free(_arr);
+}

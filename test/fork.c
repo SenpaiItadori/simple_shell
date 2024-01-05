@@ -30,7 +30,6 @@ int run_command(char *str, char **cmd_args)
 	{
 		wait(NULL);
 	}
-	printf("hello\n");
 
 	return (0);
 }
