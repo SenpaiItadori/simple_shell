@@ -22,7 +22,10 @@ char **arg_sort(char *buffer)
 	token = strtok(copy, delim);
 	arr[i] = malloc(sizeof(char) * (_strlen(token) + 1));
 	if (arr[i] == NULL)
+	{
+		free(copy);
 		return (NULL);
+	}
 	_strcpy(arr[i], token);
 	i++;
 

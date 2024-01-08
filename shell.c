@@ -30,12 +30,14 @@ int main(int argc, char *argv[])
 			run_command(cmd, arr);
 			free_array(arr);
 			free(buff);
+			free(cmd);
 		}
 		else
 		{
 			perror(argv[0]);
 			free_array(arr);
 			free(buff);
+			free(cmd);
 		}
 	}
 	return (0);

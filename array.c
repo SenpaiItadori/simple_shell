@@ -20,7 +20,7 @@ char **create_array(int size)
 
 /**
  * free_array - frees an array
- * @array: the array to be freed
+ * @_arr: the array to be freed
  *
  */
 
