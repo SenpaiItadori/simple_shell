@@ -16,7 +16,7 @@ char **arg_sort(char *buffer)
 	buff_cpy = _strdup(buffer);
 	size = tok_num(buff_cpy, delim);
 	free(buff_cpy);
-	copy = strdup(buffer);
+	copy = _strdup(buffer);
 	arr = create_array(size);
 	token = strtok(copy, delim);
 	if (!token)

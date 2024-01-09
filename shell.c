@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	char *buff, **arr, *cmd;
+	char *buff = NULL, **arr, *cmd;
 	(void) argc;
 
 	while (1)

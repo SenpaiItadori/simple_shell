@@ -8,10 +8,12 @@
 
 char *readline(void)
 {
-	char *read = NULL;
+	char *bead = NULL, *read;
 	size_t n = 0;
 
-	if (getline(&read, &n, stdin) == -1)
+	if (getline(&bead, &n, stdin) == -1)
 		return (NULL);
+	read = _strdup(bead);
+	free(bead);
 	return (read);
 }
