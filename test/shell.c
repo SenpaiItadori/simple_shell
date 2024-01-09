@@ -23,6 +23,12 @@ int main(int argc, char *argv[])
 				_putchar('\n');
 			return (0);
 		}
+
+		if (_exiit(_strdup(buff)) == 1)
+		{
+			free(buff);
+			break;
+		}
 		arr = arg_sort(buff);
 		cmd = path_finder(arr[0]);
 		if (cmd)

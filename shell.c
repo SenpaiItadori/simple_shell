@@ -24,6 +24,11 @@ int main(int argc, char *argv[])
 			return (0);
 		}
 		arr = arg_sort(buff);
+		if (!arr)
+		{
+			free(buff);
+			continue;
+		}
 		cmd = path_finder(arr[0]);
 		if (cmd)
 		{

@@ -20,6 +20,12 @@ char **arg_sort(char *buffer)
 	arr = create_array(size);
 
 	token = strtok(copy, delim);
+	if (!token)
+	{
+		free(arr);
+		free(copy);
+		return (NULL);
+	}
 	arr[i] = malloc(sizeof(char) * (_strlen(token) + 1));
 	if (arr[i] == NULL)
 	{
@@ -29,14 +35,17 @@ char **arg_sort(char *buffer)
 	_strcpy(arr[i], token);
 	i++;
 
-	while (token != NULL)
+	while (token)
 	{
 		token = strtok(NULL, delim);
 		if (token != NULL)
 		{
 			arr[i] = malloc(sizeof(char) * (_strlen(token) + 1));
 			if (arr[i] == NULL)
+			{
+				free(copy);
 				return (NULL);
+			}
 			_strcpy(arr[i], token);
 			i++;
 		}
