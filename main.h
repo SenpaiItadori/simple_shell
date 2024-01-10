@@ -33,6 +33,7 @@ char *readline(void);
 char **arg_sort(char *buffer);
 char *path_finder(char *c);
 int run_command(char *str, char **cmd_args);
+int _exiit(char *str);
 
 /*______________argument.c functions_______________*/
 int tok_num(char *str, const char *del);
