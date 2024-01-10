@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 				_putchar('\n');
 			return (0);
 		}
-		arr = arg_sort(buff);
+		arr = arg_sort(_strdup(buff));
 		if (!arr)
 		{
 			free(buff);

@@ -15,12 +15,12 @@ char **arg_sort(char *buffer)
 
 	buff_cpy = _strdup(buffer);
 	size = tok_num(buff_cpy, delim);
-	free(buff_cpy);
 	copy = _strdup(buffer);
 	arr = create_array(size);
 	token = strtok(copy, delim);
 	if (!token)
 	{
+		free(buffer);
 		free(arr);
 		free(copy);
 		return (NULL);
@@ -30,7 +30,6 @@ char **arg_sort(char *buffer)
 		return (NULL);
 	_strcpy(arr[i], token);
 	i++;
-
 	while (token)
 	{
 		token = strtok(NULL, delim);
@@ -46,6 +45,7 @@ char **arg_sort(char *buffer)
 			i++;
 		}
 	}
+	free(buffer);
 	free(copy);
 	arr[size] = NULL;
 	return (arr);

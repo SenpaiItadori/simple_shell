@@ -22,5 +22,6 @@ int tok_num(char *str, const char *del)
 			num++;
 	}
 
+	free(str);
 	return (num);
 }
