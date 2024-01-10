@@ -38,16 +38,12 @@ int main(int argc, char *argv[])
 		if (cmd)
 		{
 			run_command(cmd, arr);
-			free_array(arr);
-			free(buff);
-			free(cmd);
+			_free(arr, buff, cmd);
 		}
 		else
 		{
 			perror(argv[0]);
-			free_array(arr);
-			free(buff);
-			free(cmd);
+			_free(arr, buff, cmd);
 		}
 	}
 	return (0);

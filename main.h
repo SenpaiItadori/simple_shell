@@ -34,6 +34,8 @@ char **arg_sort(char *buffer);
 char *path_finder(char *c);
 int run_command(char *str, char **cmd_args);
 int _exiit(char *str);
+void print_env(char *str);
+void _free(char **array, char *s1, char *s2);
 
 /*______________argument.c functions_______________*/
 int tok_num(char *str, const char *del);
